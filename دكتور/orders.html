@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <title>الطلبات - لوحة تحكم</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+</head>
+<body class="bg-light">
+
+  <!-- ✅ Navbar موحد لجميع الصفحات -->
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container">
+      <a class="navbar-brand" href="index.html">🧑‍⚕️ عوينات خالد العبيدي</a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarNav">
+        <ul class="navbar-nav ms-auto">
+          <li class="nav-item"><a class="nav-link" href="index.html">الرئيسية</a></li>
+          <li class="nav-item"><a class="nav-link" href="products.html">النظارات</a></li>
+          <li class="nav-item"><a class="nav-link" href="admin.html">لوحة الإدارة 🛠️</a></li>
+          <li class="nav-item"><a class="nav-link active" href="orders.html">الطلبات 📦</a></li>
+          <li class="nav-item">
+            <a class="nav-link" href="cart.html">
+              سلة المشتريات 🛒 <span id="cartCount" class="badge bg-danger">0</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ✅ محتوى الطلبات -->
+  <div class="container my-5">
+    <h2 class="text-center mb-4">📦 الطلبات الواردة</h2>
+    <div id="ordersContainer" class="list-group"></div>
+  </div>
+
+  <!-- ✅ سكريبت لحساب عدد المنتجات في السلة -->
+  <script>
+    function updateCartCount() {
+      const cart = JSON.parse(localStorage.getItem('cart')) || [];
+      document.getElementById('cartCount').textContent = cart.length;
+    }
+    updateCartCount();
+  </script>
+
+  <!-- ✅ Script الطلبات -->
+  <script>
+    const container = document.getElementById('ordersContainer');
+    const orders = JSON.parse(localStorage.getItem('orders')) || [];
+
+    if (orders.length === 0) {
+      container.innerHTML = '<div class="alert alert-info text-center">لا توجد طلبات حالياً.</div>';
+    } else {
+      orders.forEach((order, index) => {
+        const el = document.createElement('div');
+        el.className = 'list-group-item';
+
+        const itemsHTML = order.items.map(item => `<li>${item.name} - ${item.price} ريال</li>`).join('');
+        el.innerHTML = `
+          <h5>طلب #${index + 1}</h5>
+          <ul>${itemsHTML}</ul>
+          <p><strong>📅 التاريخ:</strong> ${new Date(order.date).toLocaleString()}</p>
+          <p><strong>💰 الإجمالي:</strong> ${order.total} ريال</p>
+          <button class="btn btn-sm btn-danger" onclick="deleteOrder(${index})">🗑️ حذف الطلب</button>
+        `;
+
+        container.appendChild(el);
+      });
+    }
+
+    function deleteOrder(index) {
+      const orders = JSON.parse(localStorage.getItem('orders')) || [];
+      orders.splice(index, 1);
+      localStorage.setItem('orders', JSON.stringify(orders));
+      location.reload();
+    }
+  </script>
+
+  <!-- ✅ Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

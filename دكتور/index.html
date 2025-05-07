@@ -1,0 +1,1972 @@
+
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>متجر دكتور العيون - نظارات طبية وإكسسوارات</title>
+  <meta name="description" content="متجر متخصص في النظارات الطبية والشمسية بإشراف دكتور خالد العبيدي - أحدث الموديلات بجودة عالية">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <!-- مكتبة Toastify للإشعارات -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css">
+<script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <style>
+   
+   :root {
+   
+    --primary-color: #0dfdfd;
+      --secondary-color: #6c757d;
+      --dark-color: #126a72;
+    }
+    
+    .hero-section {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('https://images.unsplash.com/photo-1505576399279-565b52d4ac71?ixlib=rb-1.2.1&auto=format&fit=crop&w=1350&q=80');
+      background-size: cover;
+      background-position: center;
+      color: rgb(255, 255, 255);
+      padding: 100px 0;
+      margin-bottom: 50px;
+    }
+    
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+    
+    .product-card {
+      transition: transform 0.3s;
+      margin-bottom: 20px;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .discount-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+    
+    .testimonial-card {
+      border-left: 4px solid var(--primary-color);
+    }
+  
+  </style>
+</head>                
+<body>
+<!-- Admin Panel - Turquoise Version -->
+<div class="container admin-panel my-4 p-4 border border-2 border-turquoise rounded-4 bg-light shadow-lg" id="adminPanel" style="display: none;">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+  
+    <h4 class="mb-0 text-turquoise fw-bold">
+   
+      <i class="fas fa-cogs me-2"></i>لوحة التحكم المتكاملة
+    <!-- إضافة واجهة عصرية للإعدادات الأساسية في لوحة التحكم --> 
+<div class="row g-4">
+  <!-- إعدادات الموقع العصري -->
+  <div class="col-lg-6">
+    <div class="card h-100 border-0 shadow-lg rounded-4 overflow-hidden">
+      <div class="card-header bg-gradient bg-turquoise text-white py-3 d-flex justify-content-between align-items-center">
+        <span><i class="fas fa-sliders-h me-2"></i>إعدادات الهوية البصرية</span>
+        <i class="bi bi-palette fs-4"></i>
+      </div>
+      <div class="card-body p-4">
+
+        <!-- شعار الموقع -->
+        <div class="mb-4">
+          <label class="form-label fw-bold">شعار الموقع</label>
+          <div class="d-flex align-items-center gap-3">
+            <img id="logoPreview" src="logo.png" class="img-thumbnail shadow-sm" style="width: 100px; height: 100px; object-fit: contain;">
+            <input type="file" id="logoUpload" class="d-none" accept="image/*" onchange="uploadLogo()">
+            <button class="btn btn-outline-primary rounded-pill" onclick="document.getElementById('logoUpload').click()">
+              <i class="fas fa-upload me-1"></i> رفع الشعار
+            </button>
+          </div>
+        </div>
+
+<script>
+function uploadLogo() {
+  const input = document.getElementById('logoUpload');
+  const preview = document.getElementById('logoPreview');
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+    reader.onload = e => preview.src = e.target.result;
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+function updateSiteName() {
+  const name = document.getElementById('siteNameInput').value;
+  if (name) {
+    document.title = name;
+    document.querySelector('.navbar-brand span').textContent = name;
+  }
+}
+
+function updatePrimaryColor() {
+  const color = document.getElementById('primaryColor').value;
+  document.documentElement.style.setProperty('--primary-color', color);
+}
+
+function uploadBanner() {
+  const input = document.getElementById('bannerUpload');
+  const preview = document.getElementById('bannerPreview');
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+    reader.onload = e => preview.src = e.target.result;
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+function updateBannerText() {
+  const text = document.getElementById('bannerText').value;
+  document.querySelector('.hero-section h1').textContent = text;
+}
+</script>
+
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<style>
+.admin-panel {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  width: 90%;
+  max-width: 1400px;
+  max-height: 85vh;
+  overflow-y: auto;
+  z-index: 9999;
+  backdrop-filter: blur(10px);
+  background: rgba(255, 255, 255, 0.95);
+}
+
+.color-picker-container {
+  position: relative;
+  width: 100%;
+  height: 45px;
+}
+
+.color-picker-container input[type="color"] {
+  opacity: 0;
+  width: 100%;
+  height: 100%;
+  cursor: pointer;
+}
+
+.color-preview {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  border: 2px solid var(--turquoise);
+  pointer-events: none;
+}
+
+.media-preview-container {
+  position: relative;
+  transition: transform 0.3s ease;
+}
+
+.media-preview-container:hover {
+  transform: translateY(-3px);
+}
+
+.media-actions {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+  opacity: 0;
+  transition: opacity 0.3s ease;
+}
+
+.media-preview-container:hover .media-actions {
+  opacity: 1;
+}
+
+.form-floating label {
+  right: 1.5rem !important;
+  left: auto !important;
+}
+
+.social-links .input-group-text {
+  width: 45px;
+  justify-content: center;
+}
+
+.btn-turquoise {
+  background: var(--turquoise);
+  border-color: var(--turquoise);
+  transition: all 0.3s ease;
+}
+
+.btn-turquoise:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(64, 224, 208, 0.3);
+}
+
+.rounded-pill {
+  border-radius: 50rem !important;
+}
+</style>
+
+<script>
+// دالة معاينة الشعار
+function previewLogo(input) {
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById('logoPreview').src = e.target.result;
+      // تحديث الشعار في الهيدر
+      document.querySelector('.navbar-brand img').src = e.target.result;
+      showToast('تم تحديث الشعار بنجاح', 'success');
+    }
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+// دالة تحديث اللون
+function updatePrimaryColor() {
+  const color = document.getElementById('primaryColor').value;
+  document.documentElement.style.setProperty('--turquoise', color);
+  document.querySelectorAll('.btn-turquoise').forEach(btn => {
+    btn.style.backgroundColor = color;
+    btn.style.borderColor = color;
+  });
+  showToast('تم تحديث اللون الأساسي', 'success');
+}
+
+// دالة عرض التنبيهات
+function showToast(message, type) {
+  Toastify({
+    text: message,
+    duration: 3000,
+    gravity: "top",
+    position: "left",
+    style: {
+      background: type === 'success' ? '#40E0D0' : '#ff4757',
+      borderRadius: '8px',
+      boxShadow: '0 3px 10px rgba(0,0,0,0.1)'
+    }
+  }).showToast();
+}
+
+// دالة حفظ الإعدادات
+async function saveAllSettings() {
+  try {
+    // محاكاة اتصال بالخادم
+    await new Promise(resolve => setTimeout(resolve, 1000));
+    showToast('تم حفظ الإعدادات بنجاح', 'success');
+  } catch (error) {
+    showToast('حدث خطأ أثناء الحفظ', 'error');
+  }
+}
+</script>
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+<script>
+// دالة معاينة الشعار
+function previewLogo(input) {
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById('logoPreview').src = e.target.result;
+    }
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+// دالة معاينة البانر
+function previewBanner(input) {
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById('bannerPreview').src = e.target.result;
+    }
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+// دالة تبديل لوحة التحكم
+function toggleAdminPanel() {
+  const panel = document.getElementById('adminPanel');
+  const btn = document.getElementById('adminPanelToggle');
+  
+  if (panel.style.display === 'none') {
+    panel.style.display = 'block';
+    btn.innerHTML = '<i class="fas fa-times"></i> إغلاق التحكم';
+    btn.classList.add('btn-turquoise-dark');
+    btn.classList.remove('btn-turquoise');
+  } else {
+    panel.style.display = 'none';
+    btn.innerHTML = '<i class="fas fa-cogs"></i> لوحة التحكم';
+    btn.classList.add('btn-turquoise');
+    btn.classList.remove('btn-turquoise-dark');
+  }
+}
+
+// دالة تغيير اللون الأساسي
+function updatePrimaryColor() {
+  const color = document.getElementById('primaryColor').value;
+  document.documentElement.style.setProperty('--turquoise', color);
+}
+
+// دالة حفظ جميع الإعدادات
+function saveAllSettings() {
+  // يمكن إضافة كود AJAX هنا لحفظ الإعدادات في قاعدة البيانات
+  alert('تم حفظ جميع الإعدادات بنجاح!');
+}
+</script>
+
+<style>
+:root {
+  --turquoise: #40E0D0;       /* اللون التركوازي الأساسي */
+  --turquoise-light: #AFEEEE; /* تركوازي فاتح */
+  --turquoise-dark: #00CED1;  /* تركوازي غامق */
+}
+
+/* أنماط الألوان التركوازية */
+.bg-turquoise {
+  background-color: var(--turquoise) !important;
+}
+.bg-turquoise-light {
+  background-color: var(--turquoise-light) !important;
+}
+.bg-turquoise-dark {
+  background-color: var(--turquoise-dark) !important;
+}
+
+.btn-turquoise {
+  background-color: var(--turquoise);
+  border-color: var(--turquoise);
+  color: white;
+}
+.btn-turquoise:hover {
+  background-color: var(--turquoise-dark);
+  border-color: var(--turquoise-dark);
+  color: white;
+}
+
+.btn-outline-turquoise {
+  color: var(--turquoise);
+  border-color: var(--turquoise);
+}
+.btn-outline-turquoise:hover {
+  background-color: var(--turquoise);
+  color: white;
+}
+
+.text-turquoise {
+  color: var(--turquoise) !important;
+}
+
+.border-turquoise {
+  border-color: var(--turquoise) !important;
+}
+
+.card-header {
+  border-radius: 0 !important;
+}
+
+.shadow-sm {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+
+.shadow-lg {
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+}
+
+#adminPanel {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  width: 90%;
+  max-width: 1200px;
+  max-height: 80vh;
+  overflow-y: auto;
+  z-index: 999;
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+@media (max-width: 768px) {
+  #adminPanel {
+    width: 95%;
+    right: 10px;
+  }
+  
+  #adminPanelToggle {
+    right: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+}
+</style>
+<!-- مكتبة الأنيميشن -->
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.css" />
+
+<style>
+  .btn {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  .btn:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+  }
+
+  img:hover {
+    transform: scale(1.02);
+    transition: transform 0.3s ease;
+  }
+
+  .card:hover {
+    transform: translateY(-5px);
+    transition: transform 0.3s ease;
+  }
+</style>
+<!-- شريط التنقل المطور -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-glass shadow-lg fixed-top py-2">
+  <div class="container position-relative">
+  <!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>لوحة تحكم جانبية</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    body {
+      font-family: 'Tajawal', sans-serif;
+    }
+
+    #toggleSidebar {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1100;
+    }
+
+    #sidebar {
+      position: fixed;
+      top: 0;
+      right: -320px;
+      width: 300px;
+      height: 100vh;
+      background-color: #f8f9fa;
+      box-shadow: -2px 0 8px rgba(0, 0, 0, 0.1);
+      transition: right 0.3s ease-in-out;
+      z-index: 1090;
+      overflow-y: auto;
+      padding: 20px;
+    }
+
+    #sidebar.open {
+      right: 0;
+    }
+
+    .sidebar-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      margin-bottom: 1rem;
+    }
+
+    .sidebar-header h5 {
+      margin: 0;
+    }
+  </style>
+</head>
+<body>
+
+<!-- زر التحكم -->
+<button id="toggleSidebar" class="btn btn-primary">
+  <i class="bi bi-gear"></i> لوحة التحكم
+</button>
+
+<!-- الشريط الجانبي -->
+<div id="sidebar">
+  <div class="sidebar-header">
+    <h5>الإعدادات</h5>
+    <button class="btn btn-sm btn-danger" onclick="toggleSidebar()">
+      <i class="bi bi-x-lg"></i>
+    </button>
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">اسم الموقع:</label>
+    <input type="text" class="form-control" placeholder="مثال: عوينات خالد" />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">لون أساسي:</label>
+    <input type="color" class="form-control form-control-color" value="#40E0D0" />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">تحميل شعار:</label>
+    <input type="file" class="form-control" accept="image/*" />
+  </div>
+
+  <div class="mb-3">
+    <label class="form-label">نص البانر:</label>
+    <textarea class="form-control" rows="2" placeholder="أدخل رسالة جذابة هنا"></textarea>
+  </div>
+
+  <button class="btn btn-success w-100 mt-3">حفظ الإعدادات</button>
+</div>
+
+<script>
+  const sidebar = document.getElementById("sidebar");
+
+  function toggleSidebar() {
+    sidebar.classList.toggle("open");
+  }
+
+  document.getElementById("toggleSidebar").addEventListener("click", toggleSidebar);
+</script>
+
+</body>
+</html>
+
+    <!-- الشعار والاسم -->
+    <a class="navbar-brand d-flex align-items-center" href="#">
+      <img src="logo.png" alt="الشعار" width="45" class="pulse-animation">
+      <span class="brand-text ms-2" id="siteNameDisplay">عوينات د.خالد</span>
+    </a>
+
+    <!-- القائمة الرئيسية -->
+    <div class="collapse navbar-collapse" id="mainNav">
+      <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+        <!-- عناصر القائمة -->
+        <li class="nav-item dropdown mx-1">
+          <a class="nav-link dropdown-toggle" href="#" role="button" data-bs-toggle="dropdown">
+            <i class="bi bi-grid-3x3-gap-fill"></i> الأقسام
+          </a>
+          <ul class="dropdown-menu dropdown-menu-dark">
+            <li><a class="dropdown-item" href="#"><i class="bi bi-eyeglasses"></i> النظارات الطبية</a></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-sunglasses"></i> النظارات الشمسية</a></li>
+            <li><hr class="dropdown-divider"></li>
+            <li><a class="dropdown-item" href="#"><i class="bi bi-prescription2"></i> العدسات اللاصقة</a></li>
+          </ul>
+        </li>
+        
+        <li class="nav-item mx-1">
+          <a class="nav-link" href="#">
+            <i class="bi bi-calendar2-check"></i> حجز موعد
+          </a>
+        </li>
+        
+        <li class="nav-item mx-1">
+          <a class="nav-link" href="#">
+            <i class="bi bi-journal-medical"></i> المدونة
+          </a>
+        </li>
+      </ul>
+      <a href="cart.html" class="btn btn-warning btn-sm rounded-pill position-relative">
+        <i class="bi bi-cart3"></i>
+        <span class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">3</span>
+      </a>
+     
+        </a>
+      </div>
+      </div>
+    </div>
+  </div>
+</nav>
+
+<!-- الأنماط المخصصة -->
+<style>
+.bg-glass {
+  background: rgba(15, 25, 35, 0.95) !important;
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.navbar-brand img {
+  border: 2px solid #40E0D0;
+  box-shadow: 0 0 15px rgba(64, 224, 208, 0.3);
+  transition: all 0.3s ease;
+}
+
+.nav-link {
+  position: relative;
+  padding: 8px 20px !important;
+  border-radius: 30px;
+  transition: all 0.3s ease;
+  font-weight: 500;
+}
+
+.nav-link:hover,
+.nav-link.active {
+  background: linear-gradient(45deg, #40E0D0, #2a9d8f) !important;
+  transform: translateY(-2px);
+  box-shadow: 0 5px 15px rgba(64, 224, 208, 0.2);
+}
+
+.dropdown-menu {
+  background: rgba(15, 25, 35, 0.98);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(15px);
+}
+
+.dropdown-item {
+  color: #fff;
+  transition: all 0.2s ease;
+}
+
+.dropdown-item:hover {
+  background: #40E0D0 !important;
+  color: #1a1a1a !important;
+}
+
+.admin-toggle-btn {
+  position: absolute;
+  left: 15px;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 8px 15px;
+  border: 1px solid rgba(64, 224, 208, 0.5);
+  transition: all 0.3s ease;
+}
+
+.admin-toggle-btn:hover {
+  background: #40E0D0 !important;
+  border-color: #40E0D0;
+  box-shadow: 0 0 15px rgba(64, 224, 208, 0.3);
+}
+
+.pulse-animation {
+  animation: pulse 2s infinite;
+}
+
+@keyframes pulse {
+  0% { transform: scale(1); }
+  50% { transform: scale(1.05); }
+  100% { transform: scale(1); }
+}
+
+@media (max-width: 991px) {
+  .navbar-collapse {
+    background: rgba(15, 25, 35, 0.98);
+    padding: 20px;
+    margin-top: 15px;
+    border-radius: 15px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  }
+  
+  .nav-item {
+    margin-bottom: 10px;
+  }
+  
+  .admin-toggle-btn {
+    position: static;
+    transform: none;
+    margin-left: 10px;
+  }
+}
+</style>
+    <!-- زر تبديل لوحة التحكم -->
+    <button id="adminPanelToggle" class="btn btn-turquoise position-fixed" 
+            style="top: 20px; right: 20px; z-index: 1000;"
+            onclick="toggleAdminPanel()">
+      <i class="fas fa-cogs"></i> لوحة التحكم
+    </button>
+=
+    <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav ms-auto gap-2">
+        <li class="nav-item">
+          <a class="nav-link active" href="index.html"><i class="bi bi-house-door"></i> الرئيسية</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="productsDropdown" role="button" data-bs-toggle="dropdown">
+            <i class="bi bi-eyeglasses"></i> النظارات
+          </a>
+          <ul class="dropdown-menu">
+            <li><a class="dropdown-item" href="products.html?type=medical">النظارات الطبية</a></li>
+            <li><a class="dropdown-item" href="products.html?type=sunglasses">النظارات الشمسية</a></li>
+            <li><a class="dropdown-item" href="products.html?type=contact-lenses">عدسات لاصقة</a></li>
+          </ul>
+        </li>
+        <li class="nav-item"><a class="nav-link" href="about.html"><i class="bi bi-person"></i> عن الدكتور</a></li>
+        <li class="nav-item"><a class="nav-link" href="blog.html"><i class="bi bi-journal-text"></i> المدونة</a></li>
+        <li class="nav-item"><a class="nav-link" href="contact.html"><i class="bi bi-telephone"></i> اتصل بنا</a></li>
+        <li class="nav-item">
+          <a class="nav-link position-relative" href="cart.html">
+            <i class="bi bi-cart3"></i> السلة
+            <span id="cartCount" class="position-absolute top-0 start-100 translate-middle badge rounded-pill bg-danger">0</span>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="btn btn-outline-light rounded-pill px-3" href="login.html">
+            <i class="bi bi-box-arrow-in-right"></i> دخول
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+<!-- تفعيل تحديث الاسم والأنيميشن -->
+<script>
+  function updateSiteName() {
+    const name = document.getElementById('siteNameInput').value;
+    if (name) {
+      document.title = name + ' - نظارات طبية وإكسسوارات';
+      document.getElementById('siteNameDisplay').textContent = name;
+      localStorage.setItem('siteName', name);
+    }
+  }
+
+  document.addEventListener('DOMContentLoaded', () => {
+    const savedName = localStorage.getItem('siteName');
+    if (savedName) {
+      document.getElementById('siteNameDisplay').textContent = savedName;
+      document.title = savedName + ' - نظارات طبية وإكسسوارات';
+    }
+
+    document.querySelectorAll('section, footer, .testimonial-card, .luxury-card').forEach(el => {
+      el.setAttribute('data-aos', 'fade-up');
+    });
+
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  });
+</script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/aos/2.3.4/aos.js"></script>
+
+
+<!-- لوحة التحكم (نفس الكود السابق) -->
+<div class="container my-4 p-4 border border-primary rounded bg-light shadow-lg" id="adminPanel" style="display: none;">
+<!-- Admin Panel - Turquoise Version -->
+<div class="container my-4 p-4 border border-turquoise rounded bg-light shadow-lg" id="adminPanel" style="display: none;">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h4 class="mb-0 text-turquoise">
+      <i class="fas fa-cogs me-2"></i>لوحة تحكم الإدارة المتكاملة
+    </h4>
+    <button class="btn btn-sm btn-outline-turquoise" onclick="toggleAdminPanel()">
+      <i class="fas fa-times"></i> إغلاق
+    </button>
+  </div>
+
+  <div class="row g-4">
+    <!-- تغيير إعدادات الموقع -->
+    <div class="col-md-6">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-header bg-turquoise text-white">
+          <i class="fas fa-wrench me-2"></i>إعدادات الموقع الأساسية
+        </div>
+        <div class="card-body">
+          <div class="mb-3">
+            <label class="form-label fw-bold">اسم الموقع:</label>
+
+            <div class="input-group">
+              <input type="text" id="siteTitleInput" class="form-control" placeholder="ادخل اسم جديد للموقع">
+              <button class="btn btn-turquoise" onclick="updateSiteTitle()">
+                <i class="fas fa-save me-1"></i>حفظ
+              </button>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-bold">شعار الموقع:</label>
+            <div class="d-flex align-items-center">
+              <img id="logoPreview" src="current-logo.jpg" alt="شعار الموقع" class="img-thumbnail me-3" style="width: 60px; height: 60px;">
+              <div>
+                <input type="file" id="logoUpload" class="form-control" accept="image/*" onchange="previewLogo(this)">
+                <small class="text-muted">الحجم الموصى به: 200×200 بكسل</small>
+              </div>
+            </div>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-bold">لون الموقع الأساسي:</label>
+            <input type="color" id="primaryColor" class="form-control form-control-color" value="#40E0D0" onchange="updatePrimaryColor()">
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- إدارة الوسائط -->
+    <div class="col-md-6">
+      <div class="card h-100 border-0 shadow-sm">
+        <div class="card-header bg-turquoise-dark text-white">
+          <i class="fas fa-images me-2"></i>إدارة الوسائط
+        </div>
+        <div class="card-body">
+          <div class="mb-3">
+            <label class="form-label fw-bold">صورة البانر الرئيسي:</label>
+            <div class="mb-2">
+              <img id="bannerPreview" src="current-banner.jpg" alt="معاينة البانر" class="img-fluid rounded mb-2" style="max-height: 100px;">
+            </div>
+            <input type="file" id="bannerImageInput" class="form-control" accept="image/*" onchange="previewBanner(this)">
+            <small class="text-muted">الحجم الموصى به: 1200×400 بكسل</small>
+          </div>
+
+          <div class="mb-3">
+            <label class="form-label fw-bold">إضافة فيديو ترويجي:</label>
+            <div class="input-group mb-2">
+              <span class="input-group-text bg-turquoise text-white"><i class="fab fa-youtube"></i></span>
+              <input type="text" id="videoURLInput" class="form-control" placeholder="رابط YouTube أو mp4">
+            </div>
+            <div class="d-flex justify-content-between">
+              <button class="btn btn-turquoise" onclick="addVideo()">
+                <i class="fas fa-plus me-1"></i>إضافة الفيديو
+              </button>
+              <button class="btn btn-outline-turquoise" onclick="testVideo()">
+                <i class="fas fa-play me-1"></i>معاينة
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <!-- إعدادات إضافية -->
+    <div class="col-12">
+      <div class="card border-0 shadow-sm">
+        <div class="card-header bg-turquoise-light text-dark">
+          <i class="fas fa-sliders-h me-2"></i>إعدادات إضافية
+        </div>
+        <div class="card-body">
+          <div class="row">
+            <div class="col-md-4 mb-3">
+              <label class="form-label fw-bold">حالة الموقع:</label>
+              <select class="form-select" id="siteStatus">
+                <option value="online">متاح للجميع</option>
+                <option value="maintenance">وضع الصيانة</option>
+                <option value="private">خاص بالأعضاء</option>
+              </select>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label class="form-label fw-bold">رسالة الترحيب:</label>
+              <textarea class="form-control" id="welcomeMessage" rows="2" placeholder="رسالة ترحيب للمستخدمين"></textarea>
+            </div>
+            <div class="col-md-4 mb-3">
+              <label class="form-label fw-bold">روابط التواصل:</label>
+              <div class="d-flex gap-2">
+                <input type="text" class="form-control" placeholder="فيسبوك">
+                <input type="text" class="form-control" placeholder="تويتر">
+                <input type="text" class="form-control" placeholder="إنستغرام">
+              </div>
+            </div>
+          </div>
+          <div class="d-flex justify-content-end">
+            <button class="btn btn-turquoise text-white" onclick="saveAllSettings()">
+              <i class="fas fa-save me-1"></i>حفظ جميع الإعدادات
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- زر تبديل لوحة التحكم -->
+<button id="adminPanelToggle" class="btn btn-turquoise position-fixed" 
+        style="top: 20px; right: 20px; z-index: 1000;"
+        onclick="toggleAdminPanel()">
+  <i class="fas fa-cogs"></i> لوحة التحكم
+</button>
+
+<script>
+// دالة معاينة الشعار
+function previewLogo(input) {
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById('logoPreview').src = e.target.result;
+    }
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+// دالة معاينة البانر
+function previewBanner(input) {
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+    reader.onload = function(e) {
+      document.getElementById('bannerPreview').src = e.target.result;
+    }
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+// دالة تبديل لوحة التحكم
+function toggleAdminPanel() {
+  const panel = document.getElementById('adminPanel');
+  const btn = document.getElementById('adminPanelToggle');
+  
+  if (panel.style.display === 'none') {
+    panel.style.display = 'block';
+    btn.innerHTML = '<i class="fas fa-times"></i> إغلاق التحكم';
+    btn.classList.add('btn-turquoise-dark');
+    btn.classList.remove('btn-turquoise');
+  } else {
+    panel.style.display = 'none';
+    btn.innerHTML = '<i class="fas fa-cogs"></i> لوحة التحكم';
+    btn.classList.add('btn-turquoise');
+    btn.classList.remove('btn-turquoise-dark');
+  }
+}
+
+// دالة تغيير اللون الأساسي
+function updatePrimaryColor() {
+  const color = document.getElementById('primaryColor').value;
+  document.documentElement.style.setProperty('--turquoise', color);
+}
+
+// دالة حفظ جميع الإعدادات
+function saveAllSettings() {
+  // يمكن إضافة كود AJAX هنا لحفظ الإعدادات في قاعدة البيانات
+  alert('تم حفظ جميع الإعدادات بنجاح!');
+}
+</script>
+
+<style>
+:root {
+  --turquoise: #40E0D0;       /* اللون التركوازي الأساسي */
+  --turquoise-light: #AFEEEE; /* تركوازي فاتح */
+  --turquoise-dark: #00CED1;  /* تركوازي غامق */
+}
+
+/* أنماط الألوان التركوازية */
+.bg-turquoise {
+  background-color: var(--turquoise) !important;
+}
+.bg-turquoise-light {
+  background-color: var(--turquoise-light) !important;
+}
+.bg-turquoise-dark {
+  background-color: var(--turquoise-dark) !important;
+}
+
+.btn-turquoise {
+  background-color: var(--turquoise);
+  border-color: var(--turquoise);
+  color: white;
+}
+.btn-turquoise:hover {
+  background-color: var(--turquoise-dark);
+  border-color: var(--turquoise-dark);
+  color: white;
+}
+
+.btn-outline-turquoise {
+  color: var(--turquoise);
+  border-color: var(--turquoise);
+}
+.btn-outline-turquoise:hover {
+  background-color: var(--turquoise);
+  color: white;
+}
+
+.text-turquoise {
+  color: var(--turquoise) !important;
+}
+
+.border-turquoise {
+  border-color: var(--turquoise) !important;
+}
+
+.card-header {
+  border-radius: 0 !important;
+}
+
+.shadow-sm {
+  box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075) !important;
+}
+
+.shadow-lg {
+  box-shadow: 0 1rem 3rem rgba(0, 0, 0, 0.175) !important;
+}
+
+#adminPanel {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  width: 90%;
+  max-width: 1200px;
+  max-height: 80vh;
+  overflow-y: auto;
+  z-index: 999;
+  background-color: rgba(255, 255, 255, 0.95);
+}
+
+@media (max-width: 768px) {
+  #adminPanel {
+    width: 95%;
+    right: 10px;
+  }
+  
+  #adminPanelToggle {
+    right: 10px;
+    padding: 5px 10px;
+    font-size: 14px;
+  }
+}
+</style>
+  <!-- ... محتوى لوحة التحكم كما هو ... -->
+</div>
+
+<script>
+// دالة تبديل لوحة التحكم (محدثة)
+function toggleAdminPanel() {
+const panel = document.getElementById('adminPanel');
+const btn = document.getElementById('adminPanelToggle');
+
+if (panel.style.display === 'none') {
+panel.style.display = 'block';
+btn.innerHTML = '<i class="fas fa-times"></i> إغلاق التحكم';
+btn.classList.add('btn-danger');
+btn.classList.remove('btn-primary');
+} else {
+panel.style.display = 'none';
+btn.innerHTML = '<i class="fas fa-cogs"></i> لوحة التحكم';
+btn.classList.add('btn-primary');
+btn.classList.remove('btn-danger');
+}
+}
+</script>
+
+<style>
+/* أضف هذه الأنماط لتجربة أفضل */
+#adminPanel {
+position: fixed;
+top: 80px;
+right: 2\0px;
+width: 90%;
+max-width: 1200px;
+max-height: 80vh;
+overflow-y: auto;
+z-index: 999;
+}
+
+@media (max-width: 768px) {
+#adminPanel {
+width: 95%;
+right: 10px;
+}
+
+#adminPanelToggle {
+right: 10px;
+padding: 5px 10px;
+font-size: 14px;
+}
+}
+</style>
+
+<!-- قسم البانر الرئيسي -->
+<section class="hero-section text-center">
+  <div class="container">
+    <h1 class="display-4 fw-bold mb-4">نظارات بمواصفات طبية دقيقة</h1>
+    <p class="lead mb-5">نقدم لكم أحدث تشكيلات النظارات الطبية والشمسية بإشراف مباشر من دكتور خالد العبيدي</p>
+    <div class="d-flex justify-content-center gap-3">
+  <a href="products.html" 
+   class="btn btn-primary btn-lg px-5 py-3 rounded-pill shadow-lg animate__animated animate__pulse animate__infinite" 
+   style="font-weight: bold; transition: all 0.3s ease; background: linear-gradient(135deg, #00c9ff, #92fe9d); border: none;">
+  <i class="bi bi-eyeglasses me-2"></i> تصفح المنتجات
+</a><!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <title>تذكير بالمراجعة مع مؤقت</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    body {
+      background-color: #f8f9fa;
+      font-family: 'Cairo', sans-serif;
+      text-align: center;
+      padding-top: 80px;
+    }
+
+    .btn-reminder {
+      padding: 15px 30px;
+      border-radius: 50px;
+      background: linear-gradient(135deg, #00c9ff, #92fe9d);
+      color: #fff;
+      border: none;
+      font-weight: bold;
+      font-size: 18px;
+      transition: all 0.3s ease;
+    }
+
+    .btn-reminder:hover {
+      transform: scale(1.05);
+    }
+
+    .timer-style {
+      font-size: 1.2rem;
+      margin-top: 10px;
+      background: #e3f2fd;
+      padding: 10px;
+      border-radius: 12px;
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+
+<button class="btn-reminder animate__animated animate__pulse animate__infinite" onclick="openReminderModal()">
+  <i class="bi bi-calendar-heart me-2"></i> تذكير بالمراجعة
+</button>
+
+<script>
+  let countdownInterval;
+
+  function openReminderModal() {
+    Swal.fire({
+      title: '📅 متى كانت آخر مراجعة؟',
+      html: `
+        <input type="date" id="lastVisitDate" class="form-control mt-3" style="max-width: 300px; margin:auto" />
+        <div id="nextReviewDate" class="mt-3 fw-bold text-primary"></div>
+        <div id="countdown" class="timer-style text-dark"></div>
+      `,
+      confirmButtonText: 'تفعيل التذكير',
+      confirmButtonColor: '#00c9ff',
+      showCancelButton: true,
+      cancelButtonText: 'إلغاء',
+      focusConfirm: false,
+      didOpen: () => {
+        const input = document.getElementById('lastVisitDate');
+        input.max = new Date().toISOString().split('T')[0];
+
+        input.addEventListener('change', () => {
+          const date = new Date(input.value);
+          const next = new Date(date);
+          next.setMonth(next.getMonth() + 6);
+
+          const options = { year: 'numeric', month: 'long', day: 'numeric' };
+          document.getElementById('nextReviewDate').textContent = "📆 المراجعة القادمة: " + next.toLocaleDateString('ar-EG', options);
+
+          clearInterval(countdownInterval);
+          startCountdown(next);
+        });
+      },
+      willClose: () => clearInterval(countdownInterval),
+      preConfirm: () => {
+        const input = document.getElementById('lastVisitDate').value;
+        if (!input) {
+          Swal.showValidationMessage('يرجى تحديد تاريخ المراجعة');
+        }
+      }
+    });
+  }
+
+  function startCountdown(targetDate) {
+    function updateCountdown() {
+      const now = new Date();
+      const distance = targetDate - now;
+
+      if (distance <= 0) {
+        document.getElementById('countdown').textContent = '📢 حان وقت المراجعة!';
+        clearInterval(countdownInterval);
+        return;
+      }
+
+      const days = Math.floor(distance / (1000 * 60 * 60 * 24));
+      const hours = String(Math.floor((distance / (1000 * 60 * 60)) % 24)).padStart(2, '0');
+      const minutes = String(Math.floor((distance / (1000 * 60)) % 60)).padStart(2, '0');
+      const seconds = String(Math.floor((distance / 1000) % 60)).padStart(2, '0');
+
+      document.getElementById('countdown').innerHTML =
+        `⏳ الوقت المتبقي: <br> <span class="text-primary">${days}</span> يوم - ${hours}:${minutes}:${seconds}`;
+    }
+
+    updateCountdown();
+    countdownInterval = setInterval(updateCountdown, 1000);
+  }
+</script>
+
+</body>
+</html>
+
+<a href="#appointment"
+class="btn btn-lg px-5 py-3 rounded-pill shadow-lg animate__animated animate__pulse animate__infinite"
+style="background: linear-gradient(135deg, #00c9ff, #92fe9d); color: white; font-weight: bold; border: none; transition: all 0.3s ease;">
+<i class="bi bi-calendar2-check-fill me-2"></i> حجز موعد
+</a>
+
+    </div>
+  </div>
+</section>
+</body><script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+<!-- مميزات المتجر -->
+<section class="container my-5">
+  <div class="row g-4 text-center">
+    <div class="col-md-4">
+      <div class="p-4 border rounded h-100">
+        <i class="bi bi-shield-check feature-icon"></i>
+        <h3>جودة عالية</h3>
+        <p>نظارات مصنوعة من أفضل المواد وبأعلى معايير الجودة</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="p-4 border rounded h-100">
+        <i class="bi bi-heart-pulse feature-icon"></i>
+        <h3>إشراف طبي</h3>
+        <p>فحوصات العيون وتحديد المقاسات بدقة تحت إشراف طبيب متخصص</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="p-4 border rounded h-100">
+        <i class="bi bi-truck feature-icon"></i>
+        <h3>توصيل سريع</h3>
+        <p>توصيل لجميع أنحاء المملكة خلال 2-3 أيام عمل</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- أحدث المنتجات -->
+<section class="container my-5 py-4">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h2 class="h3">أحدث المنتجات</h2>
+    <a href="products.html" class="btn btn-outline-primary">عرض الكل</a>
+  </div>
+  
+  <div class="row" id="featuredProducts">
+    <!-- سيتم ملؤها بواسطة JavaScript -->
+    <div class="col-12 text-center my-5">
+      <div class="spinner-border text-primary" role="status">
+        <span class="visually-hidden">جاري التحميل...</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- قسم حجز المواعيد -->
+<section id="appointment" class="bg-light py-5 my-5">
+  <div class="container">
+    <div class="row align-items-center">
+      <div class="col-lg-6 mb-4 mb-lg-0">
+        <h2 class="mb-4">حجز موعد فحص نظر</h2>
+        <p class="lead">احجز موعدك الآن لفحص النظر مع دكتور خالد العبيدي</p>
+        <ul class="list-unstyled">
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> فحص دقيق للنظر</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> تحديد المقاسات بدقة</li>
+          <li class="mb-2"><i class="bi bi-check-circle-fill text-primary me-2"></i> استشارة طبية متخصصة</li>
+        </ul>
+      </div>
+      <div class="col-lg-6">
+        <div class="card shadow">
+          <div class="card-body p-4">
+            <h3 class="h5 mb-4">املأ بياناتك</h3>
+            <form id="appointmentForm">
+              <div class="mb-3">
+                <input type="text" class="form-control" placeholder="الاسم الكامل" required>
+              </div>
+              <div class="mb-3">
+                <input type="tel" class="form-control" placeholder="رقم الجوال" required>
+              </div>
+              <div class="mb-3">
+                <input type="email" class="form-control" placeholder="البريد الإلكتروني">
+              </div>
+              <div class="mb-3">
+                <input type="date" class="form-control" required>
+              </div>
+              <button type="submit" class="btn btn-primary w-100">تأكيد الحجز</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- آراء العملاء -->
+<section class="container my-5 py-4">
+  <h2 class="text-center mb-5">آراء عملائنا</h2>
+  <div class="row g-4">
+    <div class="col-md-4">
+      <div class="testimonial-card p-4 bg-white shadow-sm h-100">
+        <div class="d-flex align-items-center mb-3">
+          <img src="https://randomuser.me/api/portraits/men/32.jpg" class="rounded-circle me-3" width="50" alt="عميل">
+          <div>
+            <h5 class="mb-0">أحمد محمد</h5>
+            <div class="text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+          </div>
+        </div>
+        <p>"النظارات ممتازة والخدمة احترافية، الدكتور خالد شخص محترف ويعرف عمله جيداً"</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="testimonial-card p-4 bg-white shadow-sm h-100">
+        <div class="d-flex align-items-center mb-3">
+          <img src="https://randomuser.me/api/portraits/women/44.jpg" class="rounded-circle me-3" width="50" alt="عميلة">
+          <div>
+            <h5 class="mb-0">سارة عبدالله</h5>
+            <div class="text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-half"></i>
+            </div>
+          </div>
+        </div>
+        <p>"تشكيلة النظارات الشمسية رائعة وجميلة، أنصح الجميع بزيارة المتجر"</p>
+      </div>
+    </div>
+    <div class="col-md-4">
+      <div class="testimonial-card p-4 bg-white shadow-sm h-100">
+        <div class="d-flex align-items-center mb-3">
+          <img src="https://randomuser.me/api/portraits/men/75.jpg" class="rounded-circle me-3" width="50" alt="عميل">
+          <div>
+            <h5 class="mb-0">خالد سعيد</h5>
+            <div class="text-warning">
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+              <i class="bi bi-star-fill"></i>
+            </div>
+          </div>
+        </div>
+        <p>"أفضل مكان لفحص النظر وشراء النظارات، الخدمة سريعة والمنتجات أصلية"</p>
+      </div>
+    </div>
+  </div>
+</section>
+<!-- الطلبات -->
+<div class="col-12 col-md-6 col-xl-3">
+    <div class="luxury-card p-4">
+        <div class="d-flex align-items-center">
+            <div class="animated-icon me-3">
+                <i class="fas fa-shopping-cart"></i>
+            </div>
+            <div>
+                <h4 class="mb-0">8,530</h4>
+                <p class="mb-0 text-muted">الطلبات الشهرية</p>
+            </div>
+        </div>
+        <div class="mt-3">
+            <div class="progress gold-border" style="height: 8px;" role="progressbar" aria-valuenow="65" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar" style="width: 65%; background: var(--accent-color);"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- المستخدمون -->
+<div class="col-12 col-md-6 col-xl-3">
+    <div class="luxury-card p-4">
+        <div class="d-flex align-items-center">
+            <div class="animated-icon me-3">
+                <i class="fas fa-users"></i>
+            </div>
+            <div>
+                <h4 class="mb-0">25.4K</h4>
+                <p class="mb-0 text-muted">عدد المستخدمين</p>
+            </div>
+        </div>
+        <div class="mt-3">
+            <div class="progress gold-border" style="height: 8px;" role="progressbar" aria-valuenow="90" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar" style="width: 90%; background: var(--accent-color);"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- نسبة التحويل -->
+<div class="col-12 col-md-6 col-xl-3">
+    <div class="luxury-card p-4">
+        <div class="d-flex align-items-center">
+            <div class="animated-icon me-3">
+                <i class="fas fa-percentage"></i>
+            </div>
+            <div>
+                <h4 class="mb-0">4.8%</h4>
+                <p class="mb-0 text-muted">نسبة التحويل</p>
+            </div>
+        </div>
+        <div class="mt-3">
+            <div class="progress gold-border" style="height: 8px;" role="progressbar" aria-valuenow="48" aria-valuemin="0" aria-valuemax="100">
+                <div class="progress-bar" style="width: 48%; background: var(--accent-color);"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="stats-card rtl" dir="rtl">
+    <div class="card-header">
+        <h4 class="mb-0">1.2M</h4>
+        <p class="mb-0 text-muted">الزيارات اليومية</p>
+    </div>
+    
+    <div class="mt-3 progress-container">
+        <div 
+            class="progress custom-progress" 
+            role="progressbar" 
+            aria-valuenow="82" 
+            aria-valuemin="0" 
+            aria-valuemax="100"
+        >
+            <div class="progress-bar" style="width: 82%"></div>
+        </div>
+    </div>
+</div>
+<!-- الفوتر المطور -->
+<footer class="bg-dark text-white pt-5 pb-3">
+  <div class="container">
+    <div class="row g-4">
+      <div class="col-lg-4">
+        <h5 class="mb-3">عوينات د. خالد العبيدي</h5>
+        <p>متجر متخصص في النظارات الطبية والشمسية والعدسات اللاصقة بإشراف طبي متخصص.</p>
+        <div class="d-flex gap-3 mt-4">
+          <a href="#" class="text-white"><i class="bi bi-facebook fs-5"></i></a>
+          <a href="#" class="text-white"><i class="bi bi-twitter fs-5"></i></a>
+          <a href="#" class="text-white"><i class="bi bi-instagram fs-5"></i></a>
+        </div>
+      </div>
+      <div class="col-lg-2 col-md-4">
+        <h5 class="mb-3">روابط سريعة</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2"><a href="index.html" class="text-white-50">الرئيسية</a></li>
+          <li class="mb-2"><a href="products.html" class="text-white-50">النظارات</a></li>
+          <li class="mb-2"><a href="about.html" class="text-white-50">عن الدكتور</a></li>
+          <li class="mb-2"><a href="blog.html" class="text-white-50">المدونة</a></li>
+          <li class="mb-2"><a href="contact.html" class="text-white-50">اتصل بنا</a></li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-4">
+        <h5 class="mb-3">معلومات الاتصال</h5>
+        <ul class="list-unstyled">
+          <li class="mb-2"><i class="bi bi-geo-alt me-2"></i> الرياض، المملكة العربية السعودية</li>
+          <li class="mb-2"><i class="bi bi-telephone me-2"></i> +966 12 345 6789</li>
+          <li class="mb-2"><i class="bi bi-envelope me-2"></i> info@dr-eyes.com</li>
+        </ul>
+      </div>
+      <div class="col-lg-3 col-md-4">
+        <h5 class="mb-3">النشرة البريدية</h5>
+        <p>اشترك ليصلك كل جديد عن العروض والمنتجات</p>
+        <div class="input-group mb-3">
+          <input type="email" class="form-control" placeholder="بريدك الإلكتروني">
+          <button class="btn btn-primary" type="button">اشتراك</button>
+        </div>
+      </div>
+    </div>
+    <hr class="my-4">
+    <div class="text-center">
+      <p class="mb-0">© 2025 متجر دكتور العيون - جميع الحقوق محفوظة</p>
+    </div>
+  </div>
+</footer>
+
+<!-- ✅ Bootstrap + JavaScript -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+  // تحديث عدد المنتجات في السلة
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const totalItems = cart.reduce((total, item) => total + (item.quantity || 1), 0);
+    document.getElementById('cartCount').textContent = totalItems;
+  }
+  
+  // عرض المنتجات المميزة
+  function loadFeaturedProducts() {
+    const products = [
+      {
+        id: 1,
+        name: "نظارة طبية كلاسيكية",
+        price: 299,
+        originalPrice: 399,
+        image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+        category: "طبية"
+      },
+      {
+        id: 2,
+        name: "نظارة شمسية راقية",
+        price: 199,
+        image: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+        category: "شمسية"
+      },
+      {
+        id: 3,
+        name: "عدسات لاصقة شهرية",
+        price: 149,
+        originalPrice: 199,
+        image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+        category: "عدسات"
+      },
+      {
+        id: 4,
+        name: "نظارة رياضية متطورة",
+        price: 349,
+        image: "https://images.unsplash.com/photo-1591073113125-e46713c829ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80",
+        category: "طبية"
+      }
+    ];
+    
+    const featuredProductsContainer = document.getElementById('featuredProducts');
+    featuredProductsContainer.innerHTML = '';
+    
+    products.forEach(product => {
+      const discount = product.originalPrice 
+        ? Math.round(((product.originalPrice - product.price) / product.originalPrice) * 100)
+        : 0;
+      
+      featuredProductsContainer.innerHTML += 
+        <div class="col-md-6 col-lg-3">
+          <div class="card product-card h-100">
+            ${discount > 0 ? <span class="badge bg-danger discount-badge">${discount}%</span> : ''}
+            <img src="${product.image}" class="card-img-top" alt="${product.name}">
+            <div class="card-body">
+              <span class="badge bg-secondary mb-2">${product.category}</span>
+              <h5 class="card-title">${product.name}</h5>
+              <div class="d-flex justify-content-between align-items-center">
+                <div>
+                  <span class="text-primary fw-bold">${product.price} ر.س</span>
+                  ${product.originalPrice ? <del class="text-muted small ms-2">${product.originalPrice} ر.س</del> : ''}
+                </div>
+                <button class="btn btn-sm btn-outline-primary" onclick="addToCart(${product.id})">
+                  <i class="bi bi-cart-plus"></i>
+                </button>
+              </div>
+            </div>
+          </div>
+        </div>
+      ;
+    });
+  }
+  
+  // إضافة منتج للسلة (وظيفة مبسطة)
+  function addToCart(productId) {
+    const products = [
+      {
+        id: 1,
+        name: "نظارة طبية كلاسيكية",
+        price: 299,
+        image: "https://images.unsplash.com/photo-1511499767150-a48a237f0083?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+      },
+      {
+        id: 2,
+        name: "نظارة شمسية راقية",
+        price: 199,
+        image: "https://images.unsplash.com/photo-1556306535-0f09a537f0a3?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+      },
+      {
+        id: 3,
+        name: "عدسات لاصقة شهرية",
+        price: 149,
+        image: "https://images.unsplash.com/photo-1588776814546-1ffcf47267a5?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+      },
+      {
+        id: 4,
+        name: "نظارة رياضية متطورة",
+        price: 349,
+        image: "https://images.unsplash.com/photo-1591073113125-e46713c829ed?ixlib=rb-1.2.1&auto=format&fit=crop&w=500&q=80"
+      }
+    ];
+    
+    const product = products.find(p => p.id === productId);
+    if (!product) return;
+    
+    let cart = JSON.parse(localStorage.getItem('cart')) || [];
+    const existingItem = cart.find(item => item.id === productId);
+    
+    if (existingItem) {
+      existingItem.quantity = (existingItem.quantity || 1) + 1;
+    } else {
+      cart.push({ ...product, quantity: 1 });
+    }
+    
+    localStorage.setItem('cart', JSON.stringify(cart));
+    updateCartCount();
+    
+    // إشعار بإضافة المنتج
+    const toast = document.createElement('div');
+    toast.className = 'position-fixed bottom-0 start-0 m-3 p-3 bg-success text-white rounded';
+    toast.style.zIndex = '11';
+    toast.innerHTML = 
+      <i class="bi bi-check-circle me-2"></i>
+      تمت إضافة ${product.name} إلى السلة
+    ;
+    document.body.appendChild(toast);
+    
+    setTimeout(() => {
+      toast.remove();
+    }, 3000);
+  }
+  
+  // تهيئة الصفحة عند التحميل
+  document.addEventListener('DOMContentLoaded', function() {
+    updateCartCount();
+    loadFeaturedProducts();
+    
+    // إرسال نموذج الحجز
+    document.getElementById('appointmentForm').addEventListener('submit', function(e) {
+      e.preventDefault();
+      alert('تم استلام طلب الحجز بنجاح، سنتصل بك لتأكيد الموعد.');
+      this.reset();
+    });
+  });
+</script>
+
+
+</body>
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title id="siteTitle">متجر دكتور العيون - نظارات طبية وإكسسوارات</title>
+  <meta name="description" content="متجر متخصص في النظارات الطبية والشمسية بإشراف دكتور خالد العبيدي - أحدث الموديلات بجودة عالية">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css">
+  <style>
+    :root {
+      --primary-color: #40E0D0;
+      --secondary-color: #6c757d;
+      --dark-color: #126a72;
+    }
+    
+    /* أنماط لوحة التحكم */
+    .admin-panel {
+      position: fixed;
+      top: 80px;
+      right: 20px;
+      width: 90%;
+      max-width: 1200px;
+      max-height: 80vh;
+      overflow-y: auto;
+      z-index: 999;
+      background-color: rgba(255, 255, 255, 0.98);
+      box-shadow: 0 0 20px rgba(0,0,0,0.2);
+      border-radius: 10px;
+      display: none;
+    }
+    
+    .admin-toggle-btn {
+      position: fixed;
+      top: 20px;
+      right: 20px;
+      z-index: 1000;
+    }
+    
+    /* بقية الأنماط كما هي */
+    .hero-section {
+      background: linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url('banner.jpg');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      padding: 100px 0;
+      margin-bottom: 50px;
+    }
+    
+    .feature-icon {
+      font-size: 2.5rem;
+      color: var(--primary-color);
+      margin-bottom: 1rem;
+    }
+    
+    .product-card {
+      transition: transform 0.3s;
+      margin-bottom: 20px;
+    }
+    
+    .product-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+    }
+    
+    .discount-badge {
+      position: absolute;
+      top: 10px;
+      left: 10px;
+    }
+    
+    .testimonial-card {
+      border-left: 4px solid var(--primary-color);
+    }
+  </style>
+</head>
+<body>
+
+<!-- زر التحكم في لوحة الإدارة -->
+<button id="adminToggle" class="btn btn-primary admin-toggle-btn" onclick="toggleAdminPanel()">
+  <i class="fas fa-cogs"></i> لوحة التحكم
+</button>
+
+<!-- لوحة التحكم الإدارية -->
+<div id="adminPanel" class="container my-4 p-4 admin-panel">
+  <div class="d-flex justify-content-between align-items-center mb-4">
+    <h4 class="mb-0 text-primary">
+      <i class="fas fa-cogs me-2"></i>لوحة تحكم الإدارة
+    </h4>
+    <button class="btn btn-sm btn-outline-secondary" onclick="toggleAdminPanel()">
+      <i class="fas fa-times"></i> إغلاق
+    </button>
+  </div>
+
+  <div class="row g-4">
+    <!-- إعدادات الموقع -->
+    <div class="col-md-6">
+      <div class="card h-100">
+        <div class="card-header bg-primary text-white">
+          <i class="fas fa-cog me-2"></i> إعدادات الموقع
+        </div>
+        <div class="card-body">
+          <div class="mb-3">
+            <label class="form-label fw-bold">اسم الموقع:</label>
+            <div class="input-group">
+              <input type="text" id="siteNameInput" class="form-control" value="متجر دكتور العيون">
+              <button class="btn btn-primary" onclick="updateSiteName()">
+                <i class="fas fa-save"></i> حفظ
+              </button>
+            </div>
+          </div>
+          
+          <div class="mb-3">
+            <label class="form-label fw-bold">شعار الموقع:</label>
+            <div class="d-flex align-items-center mb-2">
+              <img id="logoPreview" src="logo.png" alt="شعار الموقع" class="img-thumbnail me-3" style="width:60px;height:60px">
+            </div>
+            <input type="file" id="logoUpload" class="form-control" accept="image/*" onchange="uploadLogo()">
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    <!-- إدارة البانر -->
+    <div class="col-md-6">
+      <div class="card h-100">
+        <div class="card-header bg-success text-white">
+          <i class="fas fa-image me-2"></i> إدارة البانر
+        </div>
+        <div class="card-body">
+          <div class="mb-3">
+            <label class="form-label fw-bold">صورة البانر الحالية:</label>
+            <img id="bannerPreview" src="banner.jpg" class="img-fluid rounded mb-2" style="max-height:100px">
+          </div>
+          <input type="file" id="bannerUpload" class="form-control mb-3" accept="image/*" onchange="uploadBanner()">
+          
+          <div class="mb-3">
+            <label class="form-label fw-bold">نص البانر:</label>
+            <textarea id="bannerText" class="form-control" rows="3">نظارات بمواصفات طبية دقيقة</textarea>
+            <button class="btn btn-success mt-2" onclick="updateBannerText()">
+              <i class="fas fa-save"></i> حفظ النص
+            </button>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+  
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- بقية الصفحة كما هي -->
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top">
+  <!-- ... شريط التنقل ... -->
+</nav>
+
+<section class="hero-section text-center">
+  <!-- ... قسم البانر ... -->
+</section>
+
+<!-- ... بقية أقسام الموقع ... -->
+
+<script>
+// وظائف لوحة التحكم
+function toggleAdminPanel() {
+  const panel = document.getElementById('adminPanel');
+  const btn = document.getElementById('adminToggle');
+  
+  if (panel.style.display === 'none' || !panel.style.display) {
+    panel.style.display = 'block';
+    btn.innerHTML = '<i class="fas fa-times"></i> إغلاق التحكم';
+    btn.classList.remove('btn-primary');
+    btn.classList.add('btn-danger');
+  } else {
+    panel.style.display = 'none';
+    btn.innerHTML = '<i class="fas fa-cogs"></i> لوحة التحكم';
+    btn.classList.remove('btn-danger');
+    btn.classList.add('btn-primary');
+  }
+}
+
+// تحديث اسم الموقع
+function updateSiteName() {
+  const newName = document.getElementById('siteNameInput').value;
+  document.getElementById('siteTitle').textContent = newName + ' - نظارات طبية وإكسسوارات';
+  document.querySelector('.navbar-brand span').textContent = newName;
+  localStorage.setItem('siteName', newName);
+  alert('تم تحديث اسم الموقع بنجاح');
+}
+
+// رفع الشعار
+function uploadLogo() {
+  const input = document.getElementById('logoUpload');
+  const preview = document.getElementById('logoPreview');
+  
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+    
+    reader.onload = function(e) {
+      preview.src = e.target.result;
+      localStorage.setItem('siteLogo', e.target.result);
+      
+      // هنا يمكنك إضافة كود لإرسال الصورة للخادم
+      alert('تم تحديث الشعار بنجاح');
+    }
+    
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+// رفع بانر جديد
+function uploadBanner() {
+  const input = document.getElementById('bannerUpload');
+  const preview = document.getElementById('bannerPreview');
+  const heroSection = document.querySelector('.hero-section');
+  
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+    
+    reader.onload = function(e) {
+      preview.src = e.target.result;
+      heroSection.style.backgroundImage = `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${e.target.result})`;
+      localStorage.setItem('siteBanner', e.target.result);
+      
+      // هنا يمكنك إضافة كود لإرسال الصورة للخادم
+      alert('تم تحديث صورة البانر بنجاح');
+    }
+    
+    reader.readAsDataURL(input.files[0]);
+  }
+}
+
+// تحديث نص البانر
+function updateBannerText() {
+  const newText = document.getElementById('bannerText').value;
+  document.querySelector('.hero-section h1').textContent = newText;
+  localStorage.setItem('bannerText', newText);
+  alert('تم تحديث نص البانر بنجاح');
+}
+
+// عند تحميل الصفحة، استعادة الإعدادات المحفوظة
+window.addEventListener('DOMContentLoaded', function() {
+  // استعادة اسم الموقع
+  if (localStorage.getItem('siteName')) {
+    document.getElementById('siteNameInput').value = localStorage.getItem('siteName');
+    updateSiteName();
+  }
+  
+  // استعادة الشعار
+  if (localStorage.getItem('siteLogo')) {
+    document.getElementById('logoPreview').src = localStorage.getItem('siteLogo');
+  }
+  
+  // استعادة البانر
+  if (localStorage.getItem('siteBanner')) {
+    const banner = localStorage.getItem('siteBanner');
+    document.getElementById('bannerPreview').src = banner;
+    document.querySelector('.hero-section').style.backgroundImage = 
+      `linear-gradient(rgba(0, 0, 0, 0.7), rgba(0, 0, 0, 0.7)), url(${banner})`;
+  }
+  
+  // استعادة نص البانر
+  if (localStorage.getItem('bannerText')) {
+    document.getElementById('bannerText').value = localStorage.getItem('bannerText');
+    document.querySelector('.hero-section h1').textContent = localStorage.getItem('bannerText');
+  }
+});
+
+// وظائف إدارة المنتجات (يمكن تطويرها حسب الحاجة)
+function addNewProduct() {
+  alert('سيتم فتح نموذج إضافة منتج جديد');
+  // يمكنك إضافة نموذج هنا أو توجيه المستخدم لصفحة أخرى
+}
+
+function editProducts() {
+  alert('سيتم فتح قائمة المنتجات للتعديل');
+}
+
+function deleteProducts() {
+  if (confirm('هل أنت متأكد من حذف المنتجات المحددة؟')) {
+    alert('تم حذف المنتجات المحددة');
+  }
+}
+</script>
+
+<!-- بقية السكريبتات -->
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+// ... بقية السكريبتات الخاصة بالموقع ...
+</script>
+
+</body>
+<script>
+  function handleLogin(event) {
+    event.preventDefault();
+    const username = document.getElementById('username').value;
+    const remember = document.getElementById('rememberMe').checked;
+
+    if (remember) {
+      localStorage.setItem('rememberedUser', username);
+    } else {
+      localStorage.removeItem('rememberedUser');
+    }
+
+    alert("تم تسجيل الدخول!");
+    // يمكنك هنا توجيه المستخدم إلى لوحة التحكم أو حفظ الجلسة
+    return false;
+  }
+
+  // عند تحميل الصفحة
+  window.onload = function() {
+    const savedUser = localStorage.getItem('rememberedUser');
+    if (savedUser) {
+      document.getElementById('username').value = savedUser;
+      document.getElementById('rememberMe').checked = true;
+    }
+  };
+</script>
+
+</html>
+</html>     اجعل  فيه ادارة   الكوقع وتغيير الاسم والصور من خلال ازرار
+      غيرلي فقط شريط التنقل العلوي واجعله
