@@ -1,290 +1,505 @@
-<!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-<!DOCTYPE html>
+اريد الكتابه الفوق ثريدي ولايقونات ثريدي ومريحه للعين<!DOCTYPE html>
 <html lang="ar" dir="rtl">
 <head>
   <meta charset="UTF-8" />
-  <!DOCTYPE html>
-<html lang="ar" dir="rtl">
-<head>
-  <meta charset="UTF-8">
-  <!DOCTYPE html>
-  <html lang="ar" dir="rtl">
-  <head>
-    <meta charset="UTF-8">
-    <<!DOCTYPE html>
-    <html lang="ar" dir="rtl">
-    <head>
-      <meta charset="UTF-8">
-      <title>📦 إدارة المنتجات</title>
-      <meta name="viewport" content="width=device-width, initial-scale=1">
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet">
-      <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.1/font/bootstrap-icons.css" rel="stylesheet">
-      <link href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css" rel="stylesheet">
-      <style>
-        body {
-          background-color: #f0f4f8;
-          font-family: 'Cairo', sans-serif;
-        }
-        .login-card {
-          background: linear-gradient(145deg, #ffffff, #e3e3e3);
-          max-width: 400px;
-          margin: 30px auto;
-          padding: 30px;
-          border-radius: 15px;
-          box-shadow: 0 15px 40px rgba(0, 0, 0, 0.1);
-          text-align: center;
-          transition: 0.4s ease-in-out;
-        }
-        .login-card:hover {
-          transform: scale(1.03) rotateX(1deg) rotateY(-2deg);
-        }
-        .btn-login {
-          background: linear-gradient(135deg, #00c9ff, #92fe9d);
-          border: none;
-          color: white;
-          padding: 10px 30px;
-          border-radius: 50px;
-          font-weight: bold;
-          transition: 0.3s;
-          box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
-        }
-        .btn-login:hover {
-          transform: translateY(-3px);
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
-        }
-        .card {
-          transition: transform 0.4s ease, box-shadow 0.4s ease;
-          border-radius: 20px;
-          background: linear-gradient(145deg, #ffffff, #e6e6e6);
-          box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        .card:hover {
-          transform: scale(1.05) rotateX(3deg) rotateY(-3deg);
-          box-shadow: 0 20px 35px rgba(0, 0, 0, 0.2);
-        }
-        .card-img-top {
-          border-top-left-radius: 20px;
-          border-top-right-radius: 20px;
-          transition: transform 0.3s ease;
-          height: 200px;
-          object-fit: cover;
-        }
-        .form-control, .form-select {
-          border-radius: 12px;
-          box-shadow: inset 2px 2px 5px #d1d9e6, inset -3px -3px 7px #fff;
-        }
-        .form-control:focus, .form-select:focus {
-          box-shadow: 0 0 0 4px rgba(0, 201, 255, 0.25);
-          transform: scale(1.01);
-        }
-        .preview-img {
-          width: 100px;
-          height: 100px;
-          object-fit: cover;
-          margin: 5px;
-          border-radius: 10px;
-          border: 1px solid #ccc;
-        }
-      </style>
-    </head>
-    <body>
-    
-    <div class="container my-5">
-      <h2 class="text-center mb-4 animate__animated animate__fadeInDown">📒 إدارة المنتجات</h2>
-    
-      <div id="loginSection" class="login-card animate__animated animate__fadeInUp">
-        <h5 class="mb-3"><i class="bi bi-shield-lock"></i> دخول كمدير</h5>
-        <input type="password" id="adminPassword" placeholder="كلمة المرور" class="form-control mb-3" />
-        <button class="btn btn-login w-100" onclick="login()">🔐 دخول</button>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>منتجات عيادة العيون</title>
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.rtl.min.css" rel="stylesheet" />
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.0/font/bootstrap-icons.css" rel="stylesheet" />
+  <style>
+    body {
+      background-color: #0f2027;
+      color: #fff;
+      font-family: 'Tajawal', sans-serif;
+      position: relative;
+    }
+    .product-card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 15px;
+      overflow: hidden;
+      border: 1px solid rgba(255, 255, 255, 0.1);
+      transition: 0.3s;
+      position: relative;
+    }
+    .product-card:hover {
+      transform: scale(1.02);
+      box-shadow: 0 5px 15px rgba(0, 206, 201, 0.3);
+    }
+    .product-card img {
+      width: 100%;
+      height: 200px;
+      object-fit: cover;
+      transition: 0.3s;
+    }
+    .product-card:hover img {
+      transform: scale(1.05);
+    }
+    .product-body {
+      padding: 1rem;
+    }
+    .btn-primary {
+      background-color: #00cec9;
+      border: none;
+      transition: 0.3s;
+    }
+    .btn-primary:hover {
+      background-color: #00a8a4;
+      transform: translateY(-2px);
+    }
+    .admin-only {
+      display: none;
+    }
+    #particles-js {
+      position: fixed;
+      z-index: -1;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      right: 0;
+    }
+    .admin-actions {
+      display: flex;
+      gap: 5px;
+      margin-top: 10px;
+    }
+    .btn-delete {
+      background-color: #ff7675;
+      color: white;
+      transition: 0.3s;
+    }
+    .btn-delete:hover {
+      background-color: #d63031;
+      transform: translateY(-2px);
+    }
+    .btn-edit {
+      background-color: #fdcb6e;
+      color: #2d3436;
+      transition: 0.3s;
+    }
+    .btn-edit:hover {
+      background-color: #e17055;
+      color: white;
+      transform: translateY(-2px);
+    }
+    .cart-count {
+      background-color: #00cec9;
+      padding: 3px 10px;
+      border-radius: 50px;
+      font-weight: bold;
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { transform: scale(1); }
+      50% { transform: scale(1.1); }
+      100% { transform: scale(1); }
+    }
+    .whatsapp-btn {
+      background-color: #25D366;
+      color: white;
+      transition: 0.3s;
+    }
+    .whatsapp-btn:hover {
+      background-color: #128C7E;
+      transform: translateY(-2px);
+    }
+    .checkout-btn {
+      background-color: #6c5ce7;
+      color: white;
+      transition: 0.3s;
+    }
+    .checkout-btn:hover {
+      background-color: #5649be;
+      transform: translateY(-2px);
+    }
+    .animate__animated {
+      animation-duration: 0.5s;
+    }
+    #checkoutModal .modal-body {
+      max-height: 60vh;
+      overflow-y: auto;
+    }
+    .cart-item {
+      border-bottom: 1px solid #444;
+      padding: 10px 0;
+    }
+    .customer-info {
+      background: rgba(255,255,255,0.1);
+      padding: 15px;
+      border-radius: 10px;
+      margin-bottom: 20px;
+    }
+  </style>
+</head>
+<body>
+
+<div id="particles-js"></div>
+
+<div class="container py-4">
+  <h2 class="text-center mb-4">👁️ منتجات عيادة العيون والنظارات</h2>
+
+  <div class="text-center text-white mb-3">
+    🛒 عدد المنتجات في السلة: <span id="cartCount" class="cart-count">0</span>
+  </div>
+
+  <div class="text-center mb-3">
+    <button class="btn checkout-btn mb-2" onclick="openCheckoutModal()">
+      <i class="bi bi-cart-check"></i> إتمام الطلب
+    </button>
+    <button class="btn btn-danger mb-2" onclick="clearCart()">
+      <i class="bi bi-trash"></i> تفريغ السلة
+    </button>
+  </div>
+
+  <div class="text-center mb-3" id="loginBox">
+    <input type="password" id="adminPassword" class="form-control w-50 d-inline-block" placeholder="كلمة مرور المسؤول">
+    <button class="btn btn-warning" onclick="adminLogin()">تسجيل دخول</button>
+  </div>
+
+  <div class="text-center mb-3 admin-only" id="addBtnBox">
+    <button class="btn btn-success" onclick="openAddModal()">➕ إضافة منتج</button>
+  </div>
+
+  <div class="row" id="productList"></div>
+</div>
+
+<!-- Product Modal -->
+<div class="modal fade" id="productModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header">
+        <h5 class="modal-title">إدارة المنتج</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
       </div>
-    
-      <div id="logoutSection" class="text-center mb-4 d-none">
-        <button class="btn btn-danger" onclick="logout()">🚪 تسجيل الخروج</button>
+      <div class="modal-body">
+        <input type="text" id="prodName" class="form-control mb-2" placeholder="اسم المنتج">
+        <input type="number" id="prodPrice" class="form-control mb-2" placeholder="السعر (دينار عراقي)">
+        <textarea id="prodDesc" class="form-control mb-2" placeholder="الوصف"></textarea>
+        <input type="file" id="prodImage" class="form-control mb-2">
+        <div id="imagePreview" class="text-center mt-2"></div>
       </div>
-    
-      <div class="text-center mb-4 d-none" id="addProductBtn">
-        <button class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#productModal">➕ إضافة منتج جديد</button>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+        <button class="btn btn-primary" onclick="saveProduct()">💾 حفظ</button>
       </div>
-    
-      <div id="productsList" class="row gy-4"></div>
     </div>
+  </div>
+</div>
+
+<!-- Checkout Modal -->
+<div class="modal fade" id="checkoutModal" tabindex="-1">
+  <div class="modal-dialog">
+    <div class="modal-content bg-dark text-white">
+      <div class="modal-header">
+        <h5 class="modal-title">إتمام الطلب</h5>
+        <button type="button" class="btn-close btn-close-white" data-bs-dismiss="modal"></button>
+      </div>
+      <div class="modal-body" id="checkoutBody">
+        <!-- سيتم ملؤها ديناميكيًا -->
+      </div>
+      <div class="modal-footer">
+        <button class="btn btn-secondary" data-bs-dismiss="modal">إلغاء</button>
+        <button class="btn whatsapp-btn" onclick="sendToWhatsApp()">
+          <i class="bi bi-whatsapp"></i> إرسال الطلب عبر واتساب
+        </button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+
+<script>
+  let isAdmin = false;
+  let editIndex = null;
+  let products = JSON.parse(localStorage.getItem("products")) || [];
+  const WHATSAPP_NUMBER = "9647712345678"; // استبدل برقم الهاتف العراقي
+
+  function adminLogin() {
+    const pw = document.getElementById("adminPassword").value;
+    if (pw === "admin123") {
+      isAdmin = true;
+      document.getElementById("loginBox").style.display = "none";
+      document.querySelectorAll(".admin-only").forEach(e => e.style.display = "block");
+      renderProducts();
+      showAlert('تم تسجيل الدخول كمسؤول', 'success');
+    } else {
+      showAlert('كلمة المرور غير صحيحة', 'danger');
+    }
+  }
+
+  function renderProducts() {
+    const list = document.getElementById("productList");
+    list.innerHTML = "";
     
-    <!-- مودال إضافة منتج -->
-    <div class="modal fade" id="productModal" tabindex="-1" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content rounded-4 shadow">
-          <div class="modal-header">
-            <h5 class="modal-title">➕ إضافة منتج</h5>
-            <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="إغلاق"></button>
-          </div>
-          <div class="modal-body">
-            <input type="text" id="prodName" class="form-control mb-2" placeholder="اسم المنتج">
-            <input type="number" id="prodPrice" class="form-control mb-2" placeholder="السعر">
-            <input type="file" id="prodImage" class="form-control mb-2" accept="image/*" multiple>
-            <div id="imagePreview" class="d-flex flex-wrap mb-2"></div>
-            <textarea id="prodDesc" class="form-control" placeholder="الوصف (اختياري)"></textarea>
-          </div>
-          <div class="modal-footer">
-            <button class="btn btn-success w-100" onclick="saveNewProduct()">💾 حفظ المنتج</button>
+    if (products.length === 0) {
+      list.innerHTML = `
+        <div class="col-12 text-center py-5">
+          <i class="bi bi-box-seam" style="font-size: 3rem; opacity: 0.5;"></i>
+          <h4 class="mt-3">لا توجد منتجات متاحة</h4>
+          <p>قم بإضافة منتجات لعرضها هنا</p>
+        </div>
+      `;
+      return;
+    }
+    
+    products.forEach((prod, i) => {
+      list.innerHTML += `
+        <div class="col-12 col-sm-6 col-md-4 mb-4">
+          <div class="product-card">
+            <img src="${prod.image || 'https://via.placeholder.com/300x200?text=صورة+المنتج'}" alt="product">
+            <div class="product-body">
+              <h5>${prod.name}</h5>
+              <p>${prod.description || 'لا يوجد وصف'}</p>
+              <p class="text-success fw-bold">${prod.price} د.ع</p>
+              <button class="btn btn-primary w-100 mb-2" onclick="addToCart(${i})">
+                <i class="bi bi-cart-plus"></i> أضف إلى السلة
+              </button>
+              ${isAdmin ? `
+              <div class="admin-actions">
+                <button class="btn btn-edit w-50" onclick="editProduct(${i})">
+                  <i class="bi bi-pencil"></i> تعديل
+                </button>
+                <button class="btn btn-delete w-50" onclick="deleteProduct(${i})">
+                  <i class="bi bi-trash"></i> حذف
+                </button>
+              </div>
+              ` : ""}
+            </div>
           </div>
         </div>
+      `;
+    });
+    updateCartCount();
+  }
+
+  function deleteProduct(index) {
+    if (confirm('هل أنت متأكد من حذف هذا المنتج؟')) {
+      products.splice(index, 1);
+      localStorage.setItem("products", JSON.stringify(products));
+      renderProducts();
+      showAlert('تم حذف المنتج بنجاح', 'success');
+    }
+  }
+
+  function openAddModal() {
+    editIndex = null;
+    document.getElementById("prodName").value = "";
+    document.getElementById("prodPrice").value = "";
+    document.getElementById("prodDesc").value = "";
+    document.getElementById("prodImage").value = "";
+    document.getElementById("imagePreview").innerHTML = "";
+    new bootstrap.Modal(document.getElementById("productModal")).show();
+  }
+
+  function editProduct(index) {
+    const prod = products[index];
+    editIndex = index;
+    document.getElementById("prodName").value = prod.name;
+    document.getElementById("prodPrice").value = prod.price;
+    document.getElementById("prodDesc").value = prod.description || "";
+    document.getElementById("prodImage").value = "";
+    document.getElementById("imagePreview").innerHTML = prod.image ? 
+      `<img src="${prod.image}" class="img-fluid rounded" style="max-height: 150px;">` : "";
+    new bootstrap.Modal(document.getElementById("productModal")).show();
+  }
+
+  function saveProduct() {
+    const name = document.getElementById("prodName").value;
+    const price = document.getElementById("prodPrice").value;
+    const desc = document.getElementById("prodDesc").value;
+    const file = document.getElementById("prodImage").files[0];
+
+    if (!name || !price) return showAlert("يرجى تعبئة البيانات المطلوبة", "warning");
+
+    const saveData = (img = "") => {
+      const product = { name, price, description: desc, image: img };
+      if (editIndex !== null) {
+        products[editIndex] = product;
+      } else {
+        products.push(product);
+      }
+      localStorage.setItem("products", JSON.stringify(products));
+      renderProducts();
+      bootstrap.Modal.getInstance(document.getElementById("productModal")).hide();
+      showAlert('تم حفظ المنتج بنجاح', 'success');
+    };
+
+    if (file) {
+      const reader = new FileReader();
+      reader.onload = e => saveData(e.target.result);
+      reader.readAsDataURL(file);
+    } else {
+      const oldImg = editIndex !== null ? products[editIndex].image : "";
+      saveData(oldImg);
+    }
+  }
+
+  function addToCart(index) {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    cart.push(products[index]);
+    localStorage.setItem("cart", JSON.stringify(cart));
+    showAlert("تم إضافة المنتج إلى السلة", "success");
+    updateCartCount();
+  }
+
+  function updateCartCount() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    document.getElementById("cartCount").innerText = cart.length;
+  }
+
+  function clearCart() {
+    if (confirm('هل أنت متأكد من تفريغ السلة؟')) {
+      localStorage.setItem("cart", JSON.stringify([]));
+      updateCartCount();
+      showAlert("تم تفريغ السلة", "success");
+    }
+  }
+
+  function openCheckoutModal() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    if (cart.length === 0) return showAlert("السلة فارغة", "warning");
+    
+    const modalBody = document.getElementById("checkoutBody");
+    let html = `
+      <div class="customer-info">
+        <h5 class="mb-3">معلومات العميل:</h5>
+        <div class="mb-3">
+          <input type="text" id="customerName" class="form-control" placeholder="الاسم الكامل">
+        </div>
+        <div class="mb-3">
+          <input type="text" id="customerAddress" class="form-control" placeholder="العنوان">
+        </div>
       </div>
-    </div>
+      <h5 class="mb-4">تفاصيل الطلب:</h5>
+    `;
+    let total = 0;
     
-    <script>
-      const container = document.getElementById("productsList");
-      const addProductBtn = document.getElementById("addProductBtn");
-      const loginSection = document.getElementById("loginSection");
-      const logoutSection = document.getElementById("logoutSection");
-      const prodImageInput = document.getElementById("prodImage");
-      const imagePreview = document.getElementById("imagePreview");
-      let products = JSON.parse(localStorage.getItem("products")) || [];
+    cart.forEach((item, index) => {
+      html += `
+        <div class="cart-item">
+          <div class="d-flex justify-content-between">
+            <span>${index + 1}. ${item.name}</span>
+            <span class="fw-bold">${item.price} د.ع</span>
+          </div>
+        </div>
+      `;
+      total += Number(item.price);
+    });
     
-      function renderProducts() {
-        container.innerHTML = "";
-        if (products.length === 0) {
-          container.innerHTML = "<p class='text-center'>🚫 لا توجد منتجات حالياً.</p>";
-          return;
-        }
+    html += `
+      <div class="d-flex justify-content-between mt-4 pt-3 border-top">
+        <span class="fw-bold">المجموع:</span>
+        <span class="fw-bold text-success">${total.toFixed(3)} د.ع</span>
+      </div>
+    `;
     
-        products.forEach((product, index) => {
-          let img = product.images?.[0] || '';
-          let imageTag = img
-            ? `<img src="${img}" class="card-img-top" alt="${product.name}">`
-            : `<div class="card-img-top d-flex align-items-center justify-content-center bg-light" style="height: 200px;">
-                 <span class="text-muted">لا توجد صورة</span>
-               </div>`;
+    modalBody.innerHTML = html;
+    new bootstrap.Modal(document.getElementById("checkoutModal")).show();
+  }
+
+  function sendToWhatsApp() {
+    const cart = JSON.parse(localStorage.getItem("cart")) || [];
+    if (cart.length === 0) return showAlert("السلة فارغة", "warning");
     
-          container.innerHTML += `
-            <div class="col-md-4">
-              <div class="card h-100 shadow-sm animate__animated animate__fadeInUp">
-                ${imageTag}
-                <div class="card-body text-center">
-                  <h5 class="card-title">${product.name}</h5>
-                  <p class="card-text">السعر: ${product.price} دينار</p>
-                  <p class="card-text text-muted">${product.description || "لا يوجد وصف"}</p>
-                  <button class="btn btn-success btn-sm mb-2" onclick="addToCart(${index})">🛒 إضافة للسلة</button><br>
-                  <div id="adminActions-${index}" class="d-none">
-                    <button class="btn btn-warning btn-sm mb-2" onclick="editProduct(${index})">✏️ تعديل</button><br>
-                    <button class="btn btn-danger btn-sm" onclick="deleteProduct(${index})">🗑️ حذف</button>
-                  </div>
-                </div>
-              </div>
-            </div>
-          `;
-        });
+    const customerName = document.getElementById("customerName").value;
+    const customerAddress = document.getElementById("customerAddress").value;
     
-        if (localStorage.getItem("isAdmin") === "true") {
-          products.forEach((_, index) => {
-            document.getElementById(`adminActions-${index}`).classList.remove("d-none");
-          });
-        }
-      }
+    if (!customerName) return showAlert("الرجاء إدخال الاسم الكامل", "warning");
+    if (!customerAddress) return showAlert("الرجاء إدخال العنوان", "warning");
     
-      function saveNewProduct() {
-        const name = document.getElementById("prodName").value;
-        const price = document.getElementById("prodPrice").value;
-        const description = document.getElementById("prodDesc").value;
-        const files = prodImageInput.files;
+    let message = "📦 طلب جديد من عيادة العيون:%0A%0A";
+    message += "👤 اسم العميل: " + customerName + "%0A";
+    message += "🏠 العنوان: " + customerAddress + "%0A%0A";
+    message += "🛍️ تفاصيل الطلب:%0A";
     
-        if (!name || !price || files.length === 0) {
-          alert("❗ الرجاء إدخال جميع البيانات المطلوبة.");
-          return;
-        }
+    let total = 0;
     
-        const images = [];
-        let loaded = 0;
-        for (let file of files) {
-          const reader = new FileReader();
-          reader.onload = function(e) {
-            images.push(e.target.result);
-            loaded++;
-            if (loaded === files.length) {
-              products.push({ name, price, images, description });
-              localStorage.setItem("products", JSON.stringify(products));
-              renderProducts();
-              document.querySelector(".modal.show .btn-close").click();
-            }
-          };
-          reader.readAsDataURL(file);
-        }
-      }
+    // إضافة تفاصيل المنتجات
+    cart.forEach((item, index) => {
+      message += `- ${item.name} - ${item.price} د.ع%0A`;
+      total += Number(item.price);
+    });
     
-      prodImageInput.addEventListener("change", function () {
-        imagePreview.innerHTML = "";
-        Array.from(prodImageInput.files).forEach(file => {
-          const reader = new FileReader();
-          reader.onload = function (e) {
-            const img = document.createElement("img");
-            img.src = e.target.result;
-            img.className = "preview-img";
-            imagePreview.appendChild(img);
-          };
-          reader.readAsDataURL(file);
-        });
-      });
+    // إضافة المجموع
+    message += `%0A💰 المجموع الكلي: ${total.toFixed(3)} دينار عراقي`;
+    message += "%0A%0Aشكراً لاختياركم عيادتنا!";
     
-      function addToCart(index) {
-        const cart = JSON.parse(localStorage.getItem("cart")) || [];
-        cart.push(products[index]);
-        localStorage.setItem("cart", JSON.stringify(cart));
-        alert("✅ تم إضافة المنتج للسلة!");
-      }
+    // تفريغ السلة بعد الإرسال
+    localStorage.setItem("cart", JSON.stringify([]));
+    updateCartCount();
     
-      function deleteProduct(index) {
-        if (confirm("❌ هل أنت متأكد من حذف المنتج؟")) {
-          products.splice(index, 1);
-          localStorage.setItem("products", JSON.stringify(products));
-          renderProducts();
-        }
-      }
+    // إغلاق المودال
+    bootstrap.Modal.getInstance(document.getElementById("checkoutModal")).hide();
     
-      function editProduct(index) {
-        const product = products[index];
-        const newName = prompt("اسم المنتج:", product.name);
-        const newPrice = prompt("السعر:", product.price);
-        const newDesc = prompt("الوصف:", product.description || "");
-        if (newName && newPrice) {
-          products[index] = { ...product, name: newName, price: newPrice, description: newDesc };
-          localStorage.setItem("products", JSON.stringify(products));
-          renderProducts();
-        }
-      }
+    // فتح رابط واتساب
+    window.open(`https://wa.me/${WHATSAPP_NUMBER}?text=${message}`, '_blank');
+  }
+
+  function showAlert(message, type) {
+    const alertDiv = document.createElement('div');
+    alertDiv.className = `alert alert-${type} position-fixed top-20 start-50 translate-middle-x animate__animated animate__fadeIn`;
+    alertDiv.style.zIndex = '1000';
+    alertDiv.style.minWidth = '300px';
+    alertDiv.style.textAlign = 'center';
+    alertDiv.innerHTML = message;
     
-      function login() {
-        const password = document.getElementById("adminPassword").value;
-        if (password === "123456") {
-          localStorage.setItem("isAdmin", "true");
-          loginSection.classList.add("d-none");
-          logoutSection.classList.remove("d-none");
-          addProductBtn.classList.remove("d-none");
-          renderProducts();
-        } else {
-          alert("❌ كلمة السر غير صحيحة");
-        }
-      }
+    document.body.appendChild(alertDiv);
     
-      function logout() {
-        localStorage.removeItem("isAdmin");
-        loginSection.classList.remove("d-none");
-        logoutSection.classList.add("d-none");
-        addProductBtn.classList.add("d-none");
-        renderProducts();
-      }
+    setTimeout(() => {
+      alertDiv.classList.add('animate__fadeOut');
+      setTimeout(() => alertDiv.remove(), 500);
+    }, 2000);
+  }
+
+  // معاينة الصورة قبل الرفع
+  document.getElementById("prodImage").addEventListener('change', function(e) {
+    const preview = document.getElementById("imagePreview");
+    preview.innerHTML = "";
     
-      window.onload = function () {
-        if (localStorage.getItem("isAdmin") === "true") {
-          loginSection.classList.add("d-none");
-          logoutSection.classList.remove("d-none");
-          addProductBtn.classList.remove("d-none");
-        }
-        renderProducts();
+    if (this.files && this.files[0]) {
+      const reader = new FileReader();
+      reader.onload = function(event) {
+        const img = document.createElement('img');
+        img.src = event.target.result;
+        img.className = 'img-fluid rounded';
+        img.style.maxHeight = '150px';
+        preview.appendChild(img);
       };
-    </script>
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
-    </body>
-    </html>
-    
+      reader.readAsDataURL(this.files[0]);
+    }
+  });
+
+  window.onload = function () {
+    renderProducts();
+    updateCartCount();
+  };
+
+  // particles.js
+  particlesJS("particles-js", {
+    "particles": {
+      "number": { "value": 60 },
+      "color": { "value": "#ffffff" },
+      "shape": { "type": "circle" },
+      "opacity": { "value": 0.3 },
+      "size": { "value": 3 },
+      "line_linked": {
+        "enable": true,
+        "distance": 150,
+        "color": "#ffffff",
+        "opacity": 0.4,
+        "width": 1
+      },
+      "move": { "enable": true, "speed": 1.5 }
+    },
+    "interactivity": {
+      "events": {
+        "onhover": { "enable": true, "mode": "grab" }
+      }
+    },
+    "retina_detect": true
+  });
+</script>
+
+</body>
+</html>
